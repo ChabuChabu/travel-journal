@@ -1,12 +1,24 @@
 import Header from "./components/Header";
 import Main from "./components/Main";
+import data from "../src/data";
 
 function App() {
+  
+   const cards = data.map(item => {
+      return(
+        <Main
+          key={item.id}
+           {...item}
+        />
+      )
+   })
+
   return (
     <div className="App">
-       <div className=" max-w-[768px] border-2 mx-auto min-h-screen ">
+       <div className=" max-w-[700px] mx-auto bg-white border drop-shadow-lg pb-8">
           <Header/>
-          <Main/>
+          {cards}
+          {/* <Main/> */}
        </div>
     </div>
   );
